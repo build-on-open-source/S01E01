@@ -1,0 +1,191 @@
+{
+  "version": "15.0.0",
+  "artifacts": {
+    "Tree": {
+      "type": "cdk:tree",
+      "properties": {
+        "file": "tree.json"
+      }
+    },
+    "devsecops-vpc.assets": {
+      "type": "cdk:asset-manifest",
+      "properties": {
+        "file": "devsecops-vpc.assets.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version"
+      }
+    },
+    "devsecops-vpc": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://704533066374/us-west-2",
+      "properties": {
+        "templateFile": "devsecops-vpc.template.json",
+        "validateOnSynth": false,
+        "assumeRoleArn": "arn:${AWS::Partition}:iam::704533066374:role/cdk-hnb659fds-deploy-role-704533066374-us-west-2",
+        "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::704533066374:role/cdk-hnb659fds-cfn-exec-role-704533066374-us-west-2",
+        "stackTemplateAssetObjectUrl": "s3://cdk-hnb659fds-assets-704533066374-us-west-2/d3f818ca6756935d1d76632bec6a7e9431f33f1f7937238d3add38c4904f10bc.json",
+        "requiresBootstrapStackVersion": 6,
+        "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/hnb659fds/version",
+        "additionalDependencies": [
+          "devsecops-vpc.assets"
+        ]
+      },
+      "dependencies": [
+        "devsecops-vpc.assets"
+      ],
+      "metadata": {
+        "/devsecops-vpc/devsecops-VPC/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPC57DB5960"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet1Subnet5B1A4D1C"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet1RouteTableB7805963"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet1RouteTableAssociation5615D038"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet1DefaultRouteD9E1F0BD"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet1/EIP": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet1EIPD63F0B00"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet1/NATGateway": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet1NATGateway9ABA663D"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet2SubnetFDEF1AB4"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet2RouteTable5FA1F5EA"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet2RouteTableAssociation61EBE133"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/publicSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCpublicSubnet2DefaultRoute07BF6019"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet1/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet1Subnet2334C63B"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet1/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet1RouteTable7E7515D6"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet1/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet1RouteTableAssociationF102D517"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet1/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet1DefaultRouteC87C951F"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet2/Subnet": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet2SubnetE9049E23"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet2/RouteTable": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet2RouteTable19A08B29"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet2/RouteTableAssociation": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet2RouteTableAssociation794D4935"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/privateSubnet2/DefaultRoute": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCprivateSubnet2DefaultRouteFE494D11"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/IGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCIGWF82D0000"
+          }
+        ],
+        "/devsecops-vpc/devsecops-VPC/VPCGW": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "devsecopsVPCVPCGWFD8A4991"
+          }
+        ],
+        "/devsecops-vpc/VPCId": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "VPCId"
+          }
+        ],
+        "/devsecops-vpc/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata"
+          }
+        ],
+        "/devsecops-vpc/BootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "BootstrapVersion"
+          }
+        ],
+        "/devsecops-vpc/CheckBootstrapVersion": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CheckBootstrapVersion"
+          }
+        ]
+      },
+      "displayName": "devsecops-vpc"
+    }
+  }
+}

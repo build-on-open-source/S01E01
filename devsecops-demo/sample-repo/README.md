@@ -1,10 +1,6 @@
-# S01E01
+Steps to get this work.
 
-Code samples and other resources from the Build on AWS Open Source episode, S01E01
-
-**DevSecOps Demo**
-
-Some additional notes on this project. I have modified the original cdk app to add an IAM user as admin for the EKS cluster. In the code that IAM user is called "ops" you can remove these two lines or change it for the user you use. This way you will see resources in the console. The CDK deploy will likely fail if you do not update this.
+I have modified the original cdk app to add an IAM user as admin for the EKS cluster. In the code that IAM user is called "ops" you can remove these two lines or change it for the user you use. This way you will see resources in the console. The CDK deploy will likely fail if you do not update this.
 
 1. Make sure you have CDK and Typescript running in your local dev environment. You will need to also install ```npm i aws-cdk-lib```
 2. Before you build the stack, make sure you have updated the VPC info. I created a new vpc using cdk to do this
@@ -13,10 +9,6 @@ Some additional notes on this project. I have modified the original cdk app to a
 
 To test its working use 
 
-```
 kubectl port-forward {pod} 8080:8080
-```
-
-
 
 

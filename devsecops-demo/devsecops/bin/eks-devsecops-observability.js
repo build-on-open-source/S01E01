@@ -1,0 +1,14 @@
+#!/usr/bin/env node
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+require("source-map-support/register");
+const cdk = require("aws-cdk-lib");
+const eks_devsecops_observability_stack_1 = require("../lib/eks-devsecops-observability-stack");
+const app = new cdk.App();
+new eks_devsecops_observability_stack_1.EksDevsecopsObservabilityStack(app, 'EksDevsecopsObservabilityStack', {
+    env: {
+        account: process.env.CDK_DEFAULT_ACCOUNT,
+        region: 'us-west-2'
+    },
+});
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZWtzLWRldnNlY29wcy1vYnNlcnZhYmlsaXR5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiZWtzLWRldnNlY29wcy1vYnNlcnZhYmlsaXR5LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQUNBLHVDQUFxQztBQUNyQyxtQ0FBbUM7QUFDbkMsZ0dBQTBGO0FBRTFGLE1BQU0sR0FBRyxHQUFHLElBQUksR0FBRyxDQUFDLEdBQUcsRUFBRSxDQUFDO0FBQzFCLElBQUksa0VBQThCLENBQUMsR0FBRyxFQUFFLGdDQUFnQyxFQUFFO0lBQ3hFLEdBQUcsRUFBRTtRQUNILE9BQU8sRUFBRSxPQUFPLENBQUMsR0FBRyxDQUFDLG1CQUFtQjtRQUN4QyxNQUFNLEVBQUUsV0FBVztLQUNwQjtDQUNGLENBQUMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIiMhL3Vzci9iaW4vZW52IG5vZGVcbmltcG9ydCAnc291cmNlLW1hcC1zdXBwb3J0L3JlZ2lzdGVyJztcbmltcG9ydCAqIGFzIGNkayBmcm9tICdhd3MtY2RrLWxpYic7XG5pbXBvcnQgeyBFa3NEZXZzZWNvcHNPYnNlcnZhYmlsaXR5U3RhY2sgfSBmcm9tICcuLi9saWIvZWtzLWRldnNlY29wcy1vYnNlcnZhYmlsaXR5LXN0YWNrJztcblxuY29uc3QgYXBwID0gbmV3IGNkay5BcHAoKTtcbm5ldyBFa3NEZXZzZWNvcHNPYnNlcnZhYmlsaXR5U3RhY2soYXBwLCAnRWtzRGV2c2Vjb3BzT2JzZXJ2YWJpbGl0eVN0YWNrJywge1xuICBlbnY6IHtcbiAgICBhY2NvdW50OiBwcm9jZXNzLmVudi5DREtfREVGQVVMVF9BQ0NPVU5ULCBcbiAgICByZWdpb246ICd1cy13ZXN0LTInXG4gIH0sXG59KTsiXX0=

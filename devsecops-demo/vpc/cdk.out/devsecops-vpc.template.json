@@ -1,0 +1,444 @@
+{
+  "Resources": {
+    "devsecopsVPC57DB5960": {
+      "Type": "AWS::EC2::VPC",
+      "Properties": {
+        "CidrBlock": "10.192.0.0/16",
+        "EnableDnsHostnames": true,
+        "EnableDnsSupport": true,
+        "InstanceTenancy": "default",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/Resource"
+      }
+    },
+    "devsecopsVPCpublicSubnet1Subnet5B1A4D1C": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.192.0.0/24",
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "AvailabilityZone": "us-west-2a",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet1/Subnet"
+      }
+    },
+    "devsecopsVPCpublicSubnet1RouteTableB7805963": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet1/RouteTable"
+      }
+    },
+    "devsecopsVPCpublicSubnet1RouteTableAssociation5615D038": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCpublicSubnet1RouteTableB7805963"
+        },
+        "SubnetId": {
+          "Ref": "devsecopsVPCpublicSubnet1Subnet5B1A4D1C"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet1/RouteTableAssociation"
+      }
+    },
+    "devsecopsVPCpublicSubnet1DefaultRouteD9E1F0BD": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCpublicSubnet1RouteTableB7805963"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "devsecopsVPCIGWF82D0000"
+        }
+      },
+      "DependsOn": [
+        "devsecopsVPCVPCGWFD8A4991"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet1/DefaultRoute"
+      }
+    },
+    "devsecopsVPCpublicSubnet1EIPD63F0B00": {
+      "Type": "AWS::EC2::EIP",
+      "Properties": {
+        "Domain": "vpc",
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet1/EIP"
+      }
+    },
+    "devsecopsVPCpublicSubnet1NATGateway9ABA663D": {
+      "Type": "AWS::EC2::NatGateway",
+      "Properties": {
+        "SubnetId": {
+          "Ref": "devsecopsVPCpublicSubnet1Subnet5B1A4D1C"
+        },
+        "AllocationId": {
+          "Fn::GetAtt": [
+            "devsecopsVPCpublicSubnet1EIPD63F0B00",
+            "AllocationId"
+          ]
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/publicSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet1/NATGateway"
+      }
+    },
+    "devsecopsVPCpublicSubnet2SubnetFDEF1AB4": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.192.1.0/24",
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "AvailabilityZone": "us-west-2b",
+        "MapPublicIpOnLaunch": true,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "public"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Public"
+          },
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/publicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet2/Subnet"
+      }
+    },
+    "devsecopsVPCpublicSubnet2RouteTable5FA1F5EA": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/publicSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet2/RouteTable"
+      }
+    },
+    "devsecopsVPCpublicSubnet2RouteTableAssociation61EBE133": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCpublicSubnet2RouteTable5FA1F5EA"
+        },
+        "SubnetId": {
+          "Ref": "devsecopsVPCpublicSubnet2SubnetFDEF1AB4"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet2/RouteTableAssociation"
+      }
+    },
+    "devsecopsVPCpublicSubnet2DefaultRoute07BF6019": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCpublicSubnet2RouteTable5FA1F5EA"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "GatewayId": {
+          "Ref": "devsecopsVPCIGWF82D0000"
+        }
+      },
+      "DependsOn": [
+        "devsecopsVPCVPCGWFD8A4991"
+      ],
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/publicSubnet2/DefaultRoute"
+      }
+    },
+    "devsecopsVPCprivateSubnet1Subnet2334C63B": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.192.2.0/24",
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "AvailabilityZone": "us-west-2a",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/privateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet1/Subnet"
+      }
+    },
+    "devsecopsVPCprivateSubnet1RouteTable7E7515D6": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/privateSubnet1"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet1/RouteTable"
+      }
+    },
+    "devsecopsVPCprivateSubnet1RouteTableAssociationF102D517": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCprivateSubnet1RouteTable7E7515D6"
+        },
+        "SubnetId": {
+          "Ref": "devsecopsVPCprivateSubnet1Subnet2334C63B"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet1/RouteTableAssociation"
+      }
+    },
+    "devsecopsVPCprivateSubnet1DefaultRouteC87C951F": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCprivateSubnet1RouteTable7E7515D6"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "devsecopsVPCpublicSubnet1NATGateway9ABA663D"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet1/DefaultRoute"
+      }
+    },
+    "devsecopsVPCprivateSubnet2SubnetE9049E23": {
+      "Type": "AWS::EC2::Subnet",
+      "Properties": {
+        "CidrBlock": "10.192.3.0/24",
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "AvailabilityZone": "us-west-2b",
+        "MapPublicIpOnLaunch": false,
+        "Tags": [
+          {
+            "Key": "aws-cdk:subnet-name",
+            "Value": "private"
+          },
+          {
+            "Key": "aws-cdk:subnet-type",
+            "Value": "Private"
+          },
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/privateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet2/Subnet"
+      }
+    },
+    "devsecopsVPCprivateSubnet2RouteTable19A08B29": {
+      "Type": "AWS::EC2::RouteTable",
+      "Properties": {
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC/privateSubnet2"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet2/RouteTable"
+      }
+    },
+    "devsecopsVPCprivateSubnet2RouteTableAssociation794D4935": {
+      "Type": "AWS::EC2::SubnetRouteTableAssociation",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCprivateSubnet2RouteTable19A08B29"
+        },
+        "SubnetId": {
+          "Ref": "devsecopsVPCprivateSubnet2SubnetE9049E23"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet2/RouteTableAssociation"
+      }
+    },
+    "devsecopsVPCprivateSubnet2DefaultRouteFE494D11": {
+      "Type": "AWS::EC2::Route",
+      "Properties": {
+        "RouteTableId": {
+          "Ref": "devsecopsVPCprivateSubnet2RouteTable19A08B29"
+        },
+        "DestinationCidrBlock": "0.0.0.0/0",
+        "NatGatewayId": {
+          "Ref": "devsecopsVPCpublicSubnet1NATGateway9ABA663D"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/privateSubnet2/DefaultRoute"
+      }
+    },
+    "devsecopsVPCIGWF82D0000": {
+      "Type": "AWS::EC2::InternetGateway",
+      "Properties": {
+        "Tags": [
+          {
+            "Key": "Name",
+            "Value": "devsecops-vpc/devsecops-VPC"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/IGW"
+      }
+    },
+    "devsecopsVPCVPCGWFD8A4991": {
+      "Type": "AWS::EC2::VPCGatewayAttachment",
+      "Properties": {
+        "VpcId": {
+          "Ref": "devsecopsVPC57DB5960"
+        },
+        "InternetGatewayId": {
+          "Ref": "devsecopsVPCIGWF82D0000"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/devsecops-VPC/VPCGW"
+      }
+    },
+    "CDKMetadata": {
+      "Type": "AWS::CDK::Metadata",
+      "Properties": {
+        "Analytics": "v2:deflate64:H4sIAAAAAAAA/0WOUQuCMBSFf0vvc4UR9CoS4UsNDV9jrhsudRN3l4j435tp7el+9+NwOCEN6W7DexOIRxXUsqBjhlxUxKk7iJCOeStI/FQ5iwmzRS1FZgsFODtPqbYIN17U4L13kTFaSI5Sq394hlPC5nPheOYIPR8I6+TboS9OFELn+BdYlqxfhG5q2YDCiaRgtO3Et/dqsbXLrtVOhA1YarXd0yM9bF5GyqCzCmUDNF3uB58kxTAKAQAA"
+      },
+      "Metadata": {
+        "aws:cdk:path": "devsecops-vpc/CDKMetadata/Default"
+      }
+    }
+  },
+  "Outputs": {
+    "VPCId": {
+      "Description": "VPC ID",
+      "Value": {
+        "Ref": "devsecopsVPC57DB5960"
+      },
+      "Export": {
+        "Name": "us-west-2:704533066374:devsecops-vpc:vpc-id"
+      }
+    }
+  },
+  "Parameters": {
+    "BootstrapVersion": {
+      "Type": "AWS::SSM::Parameter::Value<String>",
+      "Default": "/cdk-bootstrap/hnb659fds/version",
+      "Description": "Version of the CDK Bootstrap resources in this environment, automatically retrieved from SSM Parameter Store. [cdk:skip]"
+    }
+  },
+  "Rules": {
+    "CheckBootstrapVersion": {
+      "Assertions": [
+        {
+          "Assert": {
+            "Fn::Not": [
+              {
+                "Fn::Contains": [
+                  [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5"
+                  ],
+                  {
+                    "Ref": "BootstrapVersion"
+                  }
+                ]
+              }
+            ]
+          },
+          "AssertDescription": "CDK bootstrap stack version 6 required. Please run 'cdk bootstrap' with a recent version of the CDK CLI."
+        }
+      ]
+    }
+  }
+}

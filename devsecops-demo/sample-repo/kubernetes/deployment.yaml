@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devsecops-demo
+  labels:
+    app: devsecops-demo
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devsecops-demo
+  template:
+    metadata:
+      labels:
+        app: devsecops-demo
+    spec:
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+                - arm64
+      containers:
+      - name: devsecops-demo
+        image: 704533066374.dkr.ecr.us-west-2.amazonaws.com/eksdevsecopsobservabilitystack-devsecopsrepoecr36d6da29-iyti3a0xqgob:app-latest
+        ports:
+        - containerPort: 8080
+        securityContext:
+          allowPrivilegeEscalation: false
+          runAsNonRoot: true
+          runAsUser: 10001       
