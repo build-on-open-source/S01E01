@@ -26,5 +26,15 @@ Some notes on the pre-requisites for https://github.com/mhlabs/xray-cli:
 
 After doing these and running ``` npm install -g @mhlabs/xray-cli ```   you will then be able to run ``` xray traces ``` and play with some rather nifty ascii art :)
 
+**Flutter Auth Demo
 
+Please refer to this blog https://aws.amazon.com/blogs/mobile/amplify-flutter-auth-web-and-desktop/: for the prerequisites needed to run this flutter application
+
+Notes: 
+1. You will need to install the Amplify CLI and Configure Flutter Development environment
+2  If you are on a Mac ARM laptop you will need to setup cocoa pods to use arm 
+```
+sudo gem uninstall ffi && sudo gem install ffi -- --enable-libffi-alloc
+```
+3. This project has NOT been tested in Android or other desktops beyond MacOS
 
