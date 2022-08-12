@@ -17,6 +17,14 @@ To test its working use
 kubectl port-forward {pod} 8080:8080
 ```
 
+**Xray CLI Demo**
+
+Some notes on the pre-requisites for https://github.com/mhlabs/xray-cli:
+
+1. Make sure you have the AWS CLI installed and configured https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+2. If you dont currently trace using AWS X-RAY, but want to get a feel for it and to generate test data - recommend having a look at https://serverless-observability.workshop.aws/ 
+
+After doing these and running ``` npm install -g @mhlabs/xray-cli ```   you will then be able to run ``` xray traces ``` and play with some rather nifty ascii art :)
 
 
 
