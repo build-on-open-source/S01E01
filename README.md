@@ -32,7 +32,7 @@ Please refer to this blog https://aws.amazon.com/blogs/mobile/amplify-flutter-au
 
 Notes: 
 1. You will need to install the Amplify CLI and Configure Flutter Development environment
-2  If you are on a Mac ARM laptop you will need to setup cocoa pods to use arm 
+2.  If you are on a Mac ARM laptop you will need to setup cocoa pods to use arm 
 ```
 sudo gem uninstall ffi && sudo gem install ffi -- --enable-libffi-alloc
 ```
