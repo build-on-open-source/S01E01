@@ -1,6 +1,7 @@
 # S01E01
 
-Code samples and other resources from the Build on AWS Open Source episode, S01E01
+Code samples and other resources from the Build on [AWS Open Source episode, S01E01](https://www.youtube.com/watch?v=yvaOErf6hcA). This episode featured the AWS open source newsletters [124](https://dev.to/aws/aws-open-source-news-and-updates-124-1i17) and [123](https://dev.to/aws/aws-open-source-news-and-updates-123-6o3)
+
 
 **DevSecOps Demo**
 
@@ -11,7 +12,7 @@ Some additional notes on this project. I have modified the original cdk app to a
 3. Create in AWS secrets two secrets (dockerhub and dockerhubtwo) which contain a key of username (dockerhub) and password (dockerhubtwo) with valid credentials for Docker
 4. In the Kubernetes/deployment.yaml update the link to the container image once it has been built
 
-To test its working use 
+To test its working use the following command:
 
 ```
 kubectl port-forward {pod} 8080:8080
