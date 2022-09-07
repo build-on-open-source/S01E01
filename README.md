@@ -2,6 +2,8 @@
 
 Code samples and other resources from the Build on [AWS Open Source episode, S01E01](https://www.youtube.com/watch?v=yvaOErf6hcA). This episode featured the AWS open source newsletters [124](https://dev.to/aws/aws-open-source-news-and-updates-124-1i17) and [123](https://dev.to/aws/aws-open-source-news-and-updates-123-6o3)
 
+[![S01E01](https://img.youtube.com/vi/yvaOErf6hcA/0.jpg)](https://www.youtube.com/watch?v=yvaOErf6hcA)
+
 
 **DevSecOps Demo**
 
